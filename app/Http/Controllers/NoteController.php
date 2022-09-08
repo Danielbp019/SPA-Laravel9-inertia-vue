@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use Inertia\Inertia;//invocar
 
 class NoteController extends Controller
 {
@@ -14,7 +15,10 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        //la vista comienza en la carpeta llamada pages entonces se crea una carpeta llamada Notes y dentro se pone el index
+        return Inertia::render('Notes/Index',[
+            'notes' => Note::latest()->get()
+        ]);
     }
 
     /**
