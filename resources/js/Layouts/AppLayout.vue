@@ -52,6 +52,9 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+                                <NavLink :href="route('notes.index')" :active="route().current('notes.*')">
+                                    Notas
+                                </NavLink> <!-- se agrega otro botón de Notas y mas abajo en el menu hamburguesa -->
                             </div>
                         </div>
 
@@ -211,6 +214,9 @@ const logout = () => {
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('notes.index')" :active="route().current('notes.*')">
+                            Notas
+                        </ResponsiveNavLink> <!-- link en el menu Hamburger para vista desde Movil -->
                     </div>
 
                     <!-- Responsive Settings Options -->
