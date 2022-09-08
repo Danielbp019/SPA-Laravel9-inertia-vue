@@ -3,7 +3,7 @@
     </script>
     
     <template>
-        <AppLayout title="Dashboard">
+        <AppLayout title="Notes">
             <template #header>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     Modulo de notas
