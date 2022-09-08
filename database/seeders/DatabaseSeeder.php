@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;//se agregan ambos
 use App\Models\Note;
 
+/* ejecutar migraciones y seeders: php artisan migrate --seed */
 class DatabaseSeeder extends Seeder
 {
     /**
