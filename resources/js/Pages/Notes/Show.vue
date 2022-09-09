@@ -1,9 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import {Link} from '@inertiajs/inertia-vue3'; //para que funcione el link
-defineProps({
-    note: Object,
-})
+import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
 </script>
     
 <template>
@@ -40,3 +37,13 @@ defineProps({
         </div>
     </AppLayout>
 </template>
+<script>
+export default {
+    components: {
+        AppLayout,
+    },
+    props: {
+        note: Object,
+    },
+}
+</script>

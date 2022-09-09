@@ -1,8 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
 </script>
-    
+        
 <template>
     <AppLayout title="Notes">
         <template #header>
@@ -19,29 +18,25 @@ import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
                         <!-- si pantalla mediana espaciado de 1 -->
                         <div class="px-4 sm:px0">
                             <!-- si la pantalla es pequeña no poner padding -->
-                            <h3 class="text-lg text-gray-900">Listado de notas</h3>
+                            <h3 class="text-lg text-gray-900">Editar una nota</h3>
                             <!-- texto grande en color gris de 900 intensidad -->
-                            <p class="text-sm text-gray-600">Toma un registro y ejecuta una función</p>
+                            <p class="text-sm text-gray-600">Si editas no podrás volver al estado anterior</p>
                             <!-- texto mediano color gris intensidad 600 -->
-
                         </div>
                     </div>
                     <div class="md:col-span-2 mt-5 md:mt-0">
                         <div class="shadow bg-white md:rounded-md p-4">
-                            <table>
-                                <tr v-for="note in notes">
-                                    <!-- reemplaza el foreach de blade -->
-                                    <td class="border px-4 py-2">
-                                        {{note.excerpt}}
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <Link :href="route('notes.show', note.id)">Ver</Link>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <Link :href="route('notes.edit', note.id)">Editar</Link>
-                                    </td>
-                                </tr>
-                            </table>
+                            <form>
+                                <label class="block font-medium text-sm text-gray-700">Resumen</label>
+                                <textarea class="form-input w-full rounded-md shadow-sm"
+                                    v-model="form.excerpt"></textarea> <!-- v-model para conectarlo con vue -->
+
+                                <label class="block font-medium text-sm text-gray-700">Contenido</label>
+                                <textarea class="form-input w-full rounded-md shadow-sm" v-model="form.content"
+                                    rows="8"></textarea> <!-- v-model para conectarlo con vue -->
+                                <button
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Editar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -49,13 +44,22 @@ import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
         </div>
     </AppLayout>
 </template>
+
 <script>
 export default {
     components: {
         AppLayout,
     },
     props: {
-        notes: Array,
+        note: Object,
     },
+    data() {
+        return {
+            form: {
+                excerpt: this.note.excerpt, /* la nota sale de la base de datos y esa nota tiene un extracto */
+                content: this.note.content, /* la nota tiene adentro un contenido */
+            }
+        }
+    }
 }
 </script>
