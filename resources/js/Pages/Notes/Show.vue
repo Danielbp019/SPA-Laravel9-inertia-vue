@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
 </script>
     
 <template>
-    <AppLayout title="Notes">
+    <AppLayout title="Notas">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Modulo de notas
@@ -29,7 +29,10 @@ import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
                         <div class="shadow bg-white md:rounded-md p-4">
                             <p>{{note.content}}</p>
                             <hr class="my-6"> <!-- margen superior e inferior 6 -->
-                            <Link :href="route('notes.index')">Volver</Link>
+
+                            <Link :href="route('notes.index')"
+                                class="inline-block align-baseline font-bold text-md text-blue-500 hover:text-blue-800">
+                            Volver</Link>
                         </div>
                     </div>
                 </div>

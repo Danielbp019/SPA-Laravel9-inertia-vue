@@ -76,6 +76,12 @@ class NoteController extends Controller
     public function update(Request $request, Note $note)
     {
         //
+        $request->validate([ /* verifica si los datos son validos */
+            'excerpt' => 'required',
+            'content' => 'required',
+        ]);
+        $note->update($request->all()); /* actualiza con los datos que recibes del request */
+        return redirect()->route('notes.index');
     }
 
     /**
