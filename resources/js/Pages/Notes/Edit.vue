@@ -44,8 +44,9 @@ import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
                                         class="inline-block align-baseline font-bold text-md text-blue-500 hover:text-blue-800">
                                     Volver</Link>
                                 </div>
-
                             </form>
+                            <hr class="my-6">
+                            <a href="#" @click.prevent="destroy">Eliminar</a>
                         </div>
                     </div>
                 </div>
@@ -77,6 +78,11 @@ export default {
             this.$inertia.put(this.route('notes.update', this.note.id), this.form)
             /* this.note.id es tomar el registro que quiero manipular */
             /* this.form es tomar la información del formulario, que se define arriba en data() */
+        },/* para agregar otro método se pone una coma y se declara todo en este bloque */
+        destroy() {
+            if (confirm('¿Desea eliminar? esta acción no se puede deshacer')) {
+                this.$inertia.delete(this.route('notes.destroy', this.note.id), this.form)
+            }
         }
     }
 }
