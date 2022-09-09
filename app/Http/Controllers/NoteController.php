@@ -41,6 +41,13 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([ /* verifica si los datos son validos */
+            'excerpt' => 'required',
+            'content' => 'required',
+        ]);
+        $note= Note::create($request->all());
+
+        return redirect()->route('notes.index', $note->id);
     }
 
     /**

@@ -74,9 +74,8 @@
     
         methods: {
             submit() {
-                this.$inertia.put(this.route('notes.update', this.note.id), this.form)
-                /* this.note.id es tomar el registro que quiero manipular */
-                /* this.form es tomar la información del formulario, que se define arriba en data() */
+                this.$inertia.post(this.route('notes.store'), this.form)
+                /* este componente inertia envía a la ruta store la información del form */
             }
         }
     }
