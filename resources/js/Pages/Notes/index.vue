@@ -28,6 +28,8 @@ import { Link } from '@inertiajs/inertia-vue3'; //para que funcione el link
                     </div>
                     <div class="md:col-span-2 mt-5 md:mt-0">
                         <div class="shadow bg-white md:rounded-md p-4">
+                            <Link :href="route('notes.create')" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md">Crear</Link>
+
                             <table>
                                 <tr v-for="note in notes">
                                     <!-- reemplaza el foreach de blade -->
