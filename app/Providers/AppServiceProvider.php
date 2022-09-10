@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-use Inertia\Inertia;//invocar
 use Illuminate\Support\Facades\Session;//invocar para los mensajes flash
+use Inertia\Inertia;//invocar
 
 class AppServiceProvider extends ServiceProvider
 {
