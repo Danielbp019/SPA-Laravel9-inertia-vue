@@ -13,11 +13,13 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request) /* se agrega el request para el buscador */
     {
         //la vista comienza en la carpeta llamada pages entonces se crea una carpeta llamada Notes y dentro se pone el index
         return Inertia::render('Notes/Index',[
-            'notes' => Note::latest()->get()
+            'notes' => Note::latest()
+            ->where('excerpt', 'LIKE', "%$request->q%") /* es del buscador, trae todos los datos pero si existe q realiza esta consulta */
+            ->get()
         ]);
     }
 
