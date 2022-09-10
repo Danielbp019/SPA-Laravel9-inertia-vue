@@ -47,7 +47,7 @@ class NoteController extends Controller
         ]);
         $note= Note::create($request->all());
 
-        return redirect()->route('notes.index', $note->id);
+        return redirect()->route('notes.index', $note->id)->with('status','Nota creada');
     }
 
     /**
@@ -89,7 +89,7 @@ class NoteController extends Controller
             'content' => 'required',
         ]);
         $note->update($request->all()); /* actualiza con los datos que recibes del request */
-        return redirect()->route('notes.index');
+        return redirect()->route('notes.index')->with('status','Nota actualizada');
     }
 
     /**
@@ -103,6 +103,6 @@ class NoteController extends Controller
         //
         $note->delete();
 
-        return redirect()->route('notes.index');
+        return redirect()->route('notes.index')->with('status','Nota eliminada');
     }
 }
